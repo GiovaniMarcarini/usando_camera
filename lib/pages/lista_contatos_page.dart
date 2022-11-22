@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../dao/contato_dao.dart';
 import '../model/contato.dart';
+import 'contato_page.dart';
 
 class ListaContatosPage extends StatefulWidget {
   const ListaContatosPage({Key? key}) : super(key: key);
@@ -77,10 +78,10 @@ class _ListaContatosPageState extends State<ListaContatosPage> {
       itemBuilder: (_, index) {
         final contato = _contatos[index];
         return ListTile(
-          leading: VisualizadorImagem(
-            tipoImagem: contato.tipoImagem,
-            caminhoImagem: contato.caminhoImagem,
-          ),
+          //leading: VisualizadorImagem(
+          //  tipoImagem: contato.tipoImagem,
+           // caminhoImagem: contato.caminhoImagem,
+         // ),
           title: Text(contato.nome),
           subtitle: Row(
             children: [

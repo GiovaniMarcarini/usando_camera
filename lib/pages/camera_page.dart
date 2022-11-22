@@ -457,7 +457,7 @@ class _CameraPageState extends State<CameraPage>
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        if (widget.tipo == FormContatoPage.imagem)
+        //if (widget.tipo == FormContatoPage.imagem)
           IconButton(
             icon: const Icon(Icons.camera_alt),
             color: Colors.blue,
@@ -467,7 +467,7 @@ class _CameraPageState extends State<CameraPage>
                 ? onTakePictureButtonPressed
                 : null,
           ),
-        if (widget.tipo == FormContatoPage.video) ...[
+        //if (widget.tipo == FormContatoPage.video) ...[
           IconButton(
             icon: const Icon(Icons.videocam),
             color: Colors.blue,
@@ -510,7 +510,7 @@ class _CameraPageState extends State<CameraPage>
             cameraController == null ? null : onPausePreviewButtonPressed,
           ),
         ],
-      ],
+      //],
     );
   }
 
