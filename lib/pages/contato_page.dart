@@ -114,8 +114,56 @@ class _FormContatoPageState extends State <FormContatoPage>{
                 TextFormField(
                   decoration:InputDecoration(labelText: 'Nome'),
                   controller: _nomeController,
-
-                )
+                  validator: (String? valor){
+                    if(valor == null || valor.trim().isEmpty){
+                      return 'Informe o nome';
+                    }
+                    return null;
+                  },
+                  readOnly: _salvando,
+                ),
+                TextFormField(
+                  decoration:InputDecoration(labelText: 'Telefone'),
+                  controller: _telefoneController,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [_telefoneFormater],
+                  readOnly: _salvando,
+                ),
+                TextFormField(
+                  decoration:InputDecoration(labelText: 'E-mail'),
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  readOnly: _salvando,
+                ),
+                const Padding(
+                    padding: EdgeInsets.only(top: 15),
+                child: Text('Tipo Imagem'),
+                ),
+                DropdownButton(
+                  value: _tipoImagem,
+                  items:
+                    Contato.tiposPermitidos
+                        .map((_tipoImagem) => DropdownMenuItem(
+                      value: tipoImagem,
+                      child: Text(Contato.getTipoImagemLabel(tipoImagem)),
+                    )).toList(),
+                  isExpanded: true,
+                  onChanged: ()
+                 //   if(novoValor.isNotEmpty == true){
+                 //     setState(() {
+                 //       _tipoImagem = novoValor;
+                 //     });
+                  //  },
+                  //},
+                ),
+                if(_tipoImagem == Contato.tipoImagemFile) ...[
+                  ElevatedButton(child: Text('Obeter Imagem da Galeria'),
+                  onPressed: () => _usarImagemPicker(ImageSource.gallery, FormContatoPage.imagem),),
+                  ElevatedButton(child: Text('Usar Camera Interna'),
+                    onPressed: () => _usarCamera(FormContatoPage.imagem),),
+                  ElevatedButton(child: Text('Usar Camera Externa'),
+                    onPressed: () => _usarImagemPicker(ImageSource.camera, FormContatoPage.imagem),),
+                ]
               ],
             ),
           ),
