@@ -3,7 +3,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import '../main.dart';
+import 'package:contato_cadastro/main.dart';
+import 'package:contato_cadastro/pages/contato_page.dart';
 
 class CameraPage extends StatefulWidget {
   final String tipo;
@@ -457,7 +458,7 @@ class _CameraPageState extends State<CameraPage>
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        //if (widget.tipo == FormContatoPage.imagem)
+        if (widget.tipo == FormContatoPage.imagem)
           IconButton(
             icon: const Icon(Icons.camera_alt),
             color: Colors.blue,
@@ -467,7 +468,7 @@ class _CameraPageState extends State<CameraPage>
                 ? onTakePictureButtonPressed
                 : null,
           ),
-        //if (widget.tipo == FormContatoPage.video) ...[
+        if (widget.tipo == FormContatoPage.video) ...[
           IconButton(
             icon: const Icon(Icons.videocam),
             color: Colors.blue,
@@ -510,7 +511,7 @@ class _CameraPageState extends State<CameraPage>
             cameraController == null ? null : onPausePreviewButtonPressed,
           ),
         ],
-      //],
+      ],
     );
   }
 
@@ -553,7 +554,7 @@ class _CameraPageState extends State<CameraPage>
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   void showInSnackBar(String message) {
-    // ignore: deprecated_member_use
+    //ignore: deprecated_member_use
     //_scaffoldKey.currentState?.showSnackBar(SnackBar(content: Text(message)));
   }
 
